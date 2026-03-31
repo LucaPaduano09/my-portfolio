@@ -585,6 +585,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-block based-grid" id="based">
+        <div className="based-copy">
+          <div className="section-heading">
+            <p>Where am I based?</p>
+            <h2>Naples, Italy. Building from the Mediterranean with an international mindset.</h2>
+          </div>
+          <p className="based-description">
+            I&apos;m based in Naples and I like working at the intersection of local
+            identity and global product standards. It keeps me grounded in
+            culture while staying open to international collaboration, remote
+            work, and ambitious digital products.
+          </p>
+        </div>
+
+        <div className="location-card">
+          <div className="location-map">
+            <iframe
+              className="location-iframe"
+              src="https://www.google.com/maps?q=Naples%2C%20Italy&z=11&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Maps view of Naples, Italy"
+            />
+
+            <div className="location-overlay">
+              <div className="location-map-kicker">Google Maps · Naples</div>
+              <div className="location-callout">
+                <span className="location-callout-kicker">Coordinates</span>
+                <strong>Naples, Italy</strong>
+                <p>40.8518° N · 14.2681° E</p>
+              </div>
+              <div className="location-editorial-tag">Southern Italy / Naples</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-block" id="passions">
         <div className="section-heading">
           <p>Other passions</p>
@@ -603,17 +640,73 @@ export default function Home() {
       </section>
 
       <section className="section-block contact-band" id="contact">
-        <div>
+        <div className="contact-copy">
           <p className="eyebrow">Contact</p>
-          <h2>Open to conversations about product, frontend architecture, and ambitious digital experiences.</h2>
+          <h2>Let&apos;s build something sharp, useful, and memorable.</h2>
+          <p className="contact-summary">
+            Open to senior frontend, full stack, and product-driven opportunities
+            where execution quality, ownership, and taste actually matter.
+          </p>
+          <div className="contact-actions">
+            <a className="button-primary" href="mailto:lucapaduano09@outlook.it">
+              Send an email
+            </a>
+            <a className="button-secondary" href="https://trenova.it" target="_blank" rel="noreferrer">
+              Visit Trenova
+            </a>
+          </div>
+          <div className="contact-note">
+            <span className="contact-note-label">Based in</span>
+            <strong>Naples, Italy</strong>
+          </div>
         </div>
-        <div className="contact-links">
-          <a href="mailto:lucapaduano09@outlook.it">lucapaduano09@outlook.it</a>
-          <a href="https://trenova.it" target="_blank" rel="noreferrer">
-            trenova.it
+        <div className="contact-panel">
+          <div className="contact-panel-top">
+            <span className="contact-panel-kicker">Direct links</span>
+            <p>Available for selected collaborations, remote roles, and freelance product work.</p>
+          </div>
+          <div className="contact-links">
+            <a href="mailto:lucapaduano09@outlook.it">
+              <span className="contact-link-label">Email</span>
+              <strong>lucapaduano09@outlook.it</strong>
+            </a>
+            <a href="tel:3426137684">
+              <span className="contact-link-label">Phone</span>
+              <strong>+39 3426137684</strong>
+            </a>
+            <a href="https://trenova.it" target="_blank" rel="noreferrer">
+              <span className="contact-link-label">Website</span>
+              <strong>trenova.it</strong>
+            </a>
+            <span className="contact-static">
+              <span className="contact-link-label">Location</span>
+              <strong>Naples, Italy</strong>
+            </span>
+          </div>
+          <div className="contact-socials">
+          <a
+            href="https://www.linkedin.com/in/luca-paduano-30a270205/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              in
+            </span>
+            LinkedIn
           </a>
-          <a href="tel:3426137684">+39 3426137684</a>
-          <span>Naples, Italy</span>
+          <a
+            href="https://github.com/LucaPaduano09"
+            target="_blank"
+            rel="noreferrer"
+            className="social-link"
+          >
+            <span className="social-icon" aria-hidden="true">
+              gh
+            </span>
+            GitHub
+          </a>
+          </div>
         </div>
       </section>
     </main>
