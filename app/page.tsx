@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PortfolioPlayground from "./components/portfolio-playground";
 
 const stats = [
   { label: "Based in", value: "Naples, Italy" },
@@ -60,6 +61,31 @@ const experience = [
       "Mentored teammates and collaborated directly with global brands including Ray-Ban and LensCrafters.",
     ],
   },
+  {
+    role: "Apple Developer Academy",
+    company: "Universita degli Studi di Napoli Federico II",
+    period: "Academic experience",
+    summary:
+      "A formative experience focused on product thinking, app development, teamwork, and building digital solutions in a multidisciplinary environment.",
+    points: [
+      "Worked on app-oriented product development with a strong focus on user experience and problem solving.",
+      "Strengthened collaboration, presentation, and team-based delivery skills in an international learning context.",
+      "Deepened the connection between technology, design thinking, and practical product execution.",
+    ],
+  },
+];
+
+const education = [
+  {
+    title: "Apple Developer Academy",
+    school: "Universita degli Studi di Napoli Federico II",
+    period: "Advanced training program",
+    points: [
+      "Training centered on app development, UX sensitivity, teamwork, and product mindset.",
+      "Hands-on learning through projects, iteration, and multidisciplinary collaboration.",
+      "A key step in shaping my technical path and approach to building digital products.",
+    ],
+  },
 ];
 
 const capabilities = [
@@ -86,48 +112,19 @@ const capabilities = [
 ];
 
 const technologies = [
-  {
-    category: "Frontend",
-    items: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-      "Sass",
-      "HTML5",
-      "CSS3",
-      "Zustand",
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      "Node.js",
-      "Express",
-      "Prisma ORM",
-      "MongoDB",
-      "SQL",
-      "NoSQL",
-      "Zod",
-      "REST APIs",
-      "WebSocket",
-    ],
-  },
-  {
-    category: "Mobile & Product",
-    items: [
-      "React Native",
-      "Swift",
-      "SwiftUI",
-      "SaaS architecture",
-      "Multi-tenant systems",
-      "Dashboard UX",
-      "Monorepo setup",
-      "Vercel",
-      "Git workflows",
-    ],
-  },
+  { name: "React", short: "R", tone: "cyan" },
+  { name: "Next.js", short: "N", tone: "silver" },
+  { name: "React Native", short: "RN", tone: "blue" },
+  { name: "JavaScript", short: "JS", tone: "yellow" },
+  { name: "TypeScript", short: "TS", tone: "azure" },
+  { name: "Prisma", short: "P", tone: "slate" },
+  { name: "Node.js", short: "N", tone: "green" },
+  { name: "Express", short: "EX", tone: "gray" },
+  { name: "MongoDB", short: "M", tone: "emerald" },
+  { name: "Supabase", short: "S", tone: "mint" },
+  { name: "WebSocket", short: "WS", tone: "violet" },
+  { name: "GitHub", short: "GH", tone: "graphite" },
+  { name: "SaaS", short: "∞", tone: "gold" },
 ];
 
 const books = [
@@ -243,12 +240,17 @@ const passions = [
   },
 ];
 
+const languages = [
+  { name: "Italian", level: "Native", flag: "it" },
+  { name: "English", level: "Professional", flag: "us" },
+  { name: "Spanish", level: "Conversational", flag: "es" },
+];
+
 export default function Home() {
   return (
     <main className="page-shell">
       <section className="hero-grid">
         <div className="hero-copy">
-          <p className="eyebrow">Portfolio · CV · Cover Letter</p>
           <div className="hero-intro">
             <div className="hero-heading">
               <div className="portrait-frame">
@@ -295,6 +297,18 @@ export default function Home() {
             >
               Open CV PDF
             </a>
+          </div>
+
+          <div className="hero-languages">
+            {languages.map((language) => (
+              <article className="hero-language-item" key={language.name}>
+                <span
+                  className={`language-flag flag-${language.flag}`}
+                  aria-hidden="true"
+                />
+                <span className="hero-language-name">{language.name}</span>
+              </article>
+            ))}
           </div>
 
           <div className="stats-grid">
@@ -373,6 +387,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-block technology-banner-section" id="technologies">
+        <div className="section-heading">
+          <p>Technologies</p>
+          <h2>The stack I use most to design, build, and ship products.</h2>
+        </div>
+
+        <div className="technology-marquee">
+          <div className="technology-track">
+            {[...technologies, ...technologies].map((tech, index) => (
+              <article className="technology-pill-card" key={`${tech.name}-${index}`}>
+                <span className={`technology-icon tone-${tech.tone}`}>{tech.short}</span>
+                <span className="technology-name">{tech.name}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-block split-layout" id="experience">
         <div className="section-heading">
           <p>Experience</p>
@@ -400,20 +432,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-block" id="technologies">
+      <PortfolioPlayground />
+
+      <section className="section-block split-layout" id="education">
         <div className="section-heading">
-          <p>Technologies</p>
-          <h2>Tools, frameworks, and platforms I work with confidently.</h2>
+          <p>Education</p>
+          <h2>Training experiences that shaped my approach to software, products, and collaboration.</h2>
         </div>
 
-        <div className="technology-grid">
-          {technologies.map((group) => (
-            <article className="technology-card" key={group.category}>
-              <h3>{group.category}</h3>
-              <div className="technology-cloud">
-                {group.items.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
+        <div className="timeline">
+          {education.map((item) => (
+            <article className="timeline-item" key={`${item.title}-${item.school}`}>
+              <div className="timeline-meta">
+                <span>{item.period}</span>
+                <p>{item.school}</p>
+              </div>
+              <div className="timeline-content">
+                <h3>{item.title}</h3>
+                <ul>
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </article>
           ))}
